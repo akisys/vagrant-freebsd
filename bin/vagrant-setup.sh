@@ -3,18 +3,21 @@
 # CONFIG
 ################################################################################
 
+GH_BRANCH=`freebsd-version`
+GH_USER="akisys"
+
 # Packages which are pre-installed
 INSTALLED_PACKAGES="pkg-1.5.6 indexinfo-0.2.3 ca_root_nss-3.20 virtualbox-ose-additions-4.3.30 bash-4.3.42 sudo-1.8.14p3 iocage-1.7.3"
 
 # Configuration files
-MAKE_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/make.conf"
-RC_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/rc.conf"
-RESOLV_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/resolv.conf"
-LOADER_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/boot/loader.conf"
-PF_CONF="https://raw.github.com/wunki/vagrant-freebsd/master/etc/pf.conf"
+MAKE_CONF="https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/etc/make.conf"
+RC_CONF="https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/etc/rc.conf"
+RESOLV_CONF="https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/etc/resolv.conf"
+LOADER_CONF="https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/boot/loader.conf"
+PF_CONF="https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/etc/pf.conf"
 
 # Message of the day
-MOTD="https://raw.github.com/wunki/vagrant-freebsd/master/etc/motd"
+MOTD="https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/etc/motd"
 
 # Private key of Vagrant (you probable don't want to change this)
 VAGRANT_PRIVATE_KEY="https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub"
@@ -28,7 +31,7 @@ cd /tmp/pkg
 
 # Install required packages
 for p in $INSTALLED_PACKAGES; do
-    fetch -o /tmp/pkg/$p.txz https://raw.github.com/wunki/vagrant-freebsd/master/pkg/$p.txz
+    fetch -o /tmp/pkg/$p.txz https://raw.github.com/${GH_USER}/vagrant-freebsd/${GH_BRANCH}/pkg/$p.txz
 done
 
 for p in $INSTALLED_PACKAGES; do
